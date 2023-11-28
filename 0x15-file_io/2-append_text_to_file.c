@@ -11,7 +11,7 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int fd;
-	int nletters;
+	int alphabets;
 	int rwr;
 
 	if (!filename)
@@ -24,10 +24,10 @@ int append_text_to_file(const char *filename, char *text_content)
 
 	if (text_content)
 	{
-		for (nletters = 0; text_content[nletters]; nletters++)
+		for (alphabets = 0; text_content[alphabets]; alphabets++)
 			;
 
-		rwr = write(fd, text_content, nletters);
+		rwr = write(fd, text_content, alphabets);
 
 		if (rwr == -1)
 			return (-1);
@@ -36,3 +36,4 @@ int append_text_to_file(const char *filename, char *text_content)
 	close(fd);
 
 	return (1);
+}
